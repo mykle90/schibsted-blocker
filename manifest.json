@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Aftenposten Quiet",
+  "version": "1.0.0",
+  "minimum_chrome_version": "130",
+  "description": "Skjul Aftenpostens cookiebanner og slett utvalgte sporingscookies lokalt i nettleseren.",
+  "permissions": ["cookies", "storage", "alarms"],
+  "host_permissions": ["https://*.aftenposten.no/*"],
+  "background": {"service_worker": "background.js", "type": "module"},
+  "action": {"default_popup": "popup.html", "default_title": "Aftenposten Quiet"},
+  "content_scripts": [{"matches": ["https://www.aftenposten.no/*", "https://aftenposten.no/*"], "js": ["content.js"], "run_at": "document_start"}]
+}
